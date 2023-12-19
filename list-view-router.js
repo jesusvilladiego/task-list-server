@@ -1,5 +1,5 @@
 const express = require('express');
-const router = express.Router();
+const routercom = express.Router();
 
 const listadetareas = [
   { id: 1, description: 'Task 1', Completed: true },
@@ -16,4 +16,4 @@ router.get('/incomplete-tasks', (req, res) => {
   res.json(incompleteTasks);
 });
 
-module.exports = router;
+module.exports = routercom;

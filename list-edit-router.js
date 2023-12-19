@@ -18,3 +18,5 @@ router.delete('/delete-task/:id', (req, res) => {
   listadetareas = listadetareas.filter(listadetarea => listadetarea.id !== listadetareaId);
   res.json({ message: 'Tarea eliminada exitosamente' });
 });
+
+module.exports = router
