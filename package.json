@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "node migrar.js"
+    "dev": "node migrar.js",
+    "start": "node list-view-router.js"
   },
   "keywords": [],
   "author": "",
