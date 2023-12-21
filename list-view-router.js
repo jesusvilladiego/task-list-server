@@ -1,19 +1,16 @@
 const express = require('express');
-const routercom = express.Router();
+const listviewrouter = express.Router();
 
-const listadetareas = [
-  { id: 1, description: 'Task 1', Completed: true },
-  { id: 2, description: 'Task 2', Completed: false },
-];
 
-router.get('/completed-tasks', (req, res) => {
-  const completedTasks = listadetareas.filter(listadetarea => listadetarea.completed);
-  res.json(completedTasks);
+
+listviewrouter.get('/completado-tarea', (req, res) => {
+  const completadotarea = listadetareas.filter(listadetarea => listadetarea.completado);
+  res.json(completadotarea);
 });
 
-router.get('/incomplete-tasks', (req, res) => {
-  const incompleteTasks = listadetareas.filter(listadetarea => !listadetarea.completed);
-  res.json(incompleteTasks);
+listviewrouter.get('/incompleto-tarea', (req, res) => {
+  const incompletadotarea = listadetareas.filter(listadetarea => !listadetarea.completado);
+  res.json(incompletadotarea);
 });
 
-module.exports = routercom;
+module.exports = listviewrouter;

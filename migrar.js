@@ -2,19 +2,19 @@ const express = require('express');
 const app = express();
 const port = 3000;
 
-const routercom = require("./list-view-router")
-const router = require("./list-edit-router")
+const listviewrouter = require("./list-view-router")
+const listeditrouter = require("./list-edit-router")
 
+app.use("/list-view-router", listviewrouter);
+app.use("/list-edit-router", listeditrouter);
 
-//const listadetareas = [
- // {
- //   id: "123456",
- //   description: 'sacar a caminar al perro',
- //   Completed: false,
-//}, 
-//];
-app.use("//list-view-router", routercom);
-app.use("/list-edit-router", router);
+const listadetareas = [
+ {
+   id: "123456",
+   descripcion: 'sacar a caminar al perro',
+   completado: false,
+}, 
+];
 
 app.get('/lista', (req, res) => {
   res.json(listadetareas);
