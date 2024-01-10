@@ -20,4 +20,4 @@ Importancia: Proporciona una forma única de referirse a cada tarea, evitando co
 Esta aplicación te ayudara a organizar las tareas diarias de manera clara y estructurada.
 Te Permite realizar un seguimiento del progreso al marcar tareas como completadas.
 El estado visual de completado o pendiente actúa como un recordatorio constante de las actividades pendientes.
-Los id únicos facilitan la rápida identificación y referencia de tareas específicas.
+Los id únicos facilitan la rápida identificación y referencia de tareas específicas
