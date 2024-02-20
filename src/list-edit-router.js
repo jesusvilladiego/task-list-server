@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const listadetareas = require("./data")
+const listadetareas = require("../data")
 
 router.use(express.json());
 

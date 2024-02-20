@@ -3,7 +3,7 @@ const express = require('express');
 const app = express();
 const port = 3000;
 
-const listadetareas = require("./data")
+const listadetareas = require("../data")
 const listviewrouter = require("./list-view-router")
 const listeditrouter = require("./list-edit-router")
 
