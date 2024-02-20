@@ -1,12 +1,23 @@
 const express = require('express');
 const router = express.Router();
+const listadetareas = require("./data")
 
 router.use(express.json());
 
-const listadetareas = [
-    { id: 1, descripcion: 'Task 1', completado: false },
-    { id: 2, descripcion: 'Task 2', completado: false },
-  ];
+  const validartareas = (req, res, next) => {
+    if (req.method === 'POST' || req.method === 'PUT') {
+      if (!req.body || Object.keys(req.body).length === 0) {
+        return res.status(400).json({ error: 'cuerpo vacio' });
+      }
+  
+      const { descripcion } = req.body;
+      if (!descripcion) {
+        return res.status(400).json({ error: ' información no valida o atributos faltantes para crear las tareas' });
+      }
+    }
+  
+    next();
+  };
 
   router.post('/crear-tarea', (req, res) => {
   const {descripcion}  = req.body;
@@ -28,4 +39,5 @@ router.put('/actualizar-tarea/:id', (req, res) => {
   res.json({ message: 'Tarea actualizada exitosamente' });
 });
 
-module.exports = router
+
+module.exports = {router,validartareas}

@@ -1,23 +1,32 @@
+
 const express = require('express');
 const app = express();
 const port = 3000;
 
+const listadetareas = require("./data")
 const listviewrouter = require("./list-view-router")
 const listeditrouter = require("./list-edit-router")
 
 app.use("/list-view-router", listviewrouter);
 app.use("/list-edit-router", listeditrouter);
 
-const listadetareas = [
- {
-   id: "123456",
-   descripcion: 'sacar a caminar al perro',
-   completado: false,
-}, 
-];
 
-app.get('/lista', (req, res) => {
+
+app.get("/this-should-exists", (req, res)=>{
+  res.status(404).send("Not found")
+});
+
+app.get('/', (req, res) => {
   res.json(listadetareas);
 });
+
+app.use('/editartareas', listeditrouter, () =>{
+  console.log("estas editando la lista de tareas")
+});
+
+app.use('/vertareas', listviewrouter, () => {
+  res.json(listadetareas)
+  console.log("estas viendo la lista de tareas")
+})
 
 app.listen(port, () => {console.log(`Servidor Express funcionando en http://localhost:${port}`);});
