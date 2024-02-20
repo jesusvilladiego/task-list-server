@@ -4,8 +4,8 @@ const app = express();
 const port = 3000;
 
 const listadetareas = require("./data")
-const listviewrouter = require("./src/list-view-router")
-const listeditrouter = require("./src/list-edit-router")
+const listviewrouter = require("./list-view-router")
+const listeditrouter = require("./list-edit-router")
 
 app.use("/list-view-router", listviewrouter);
 app.use("/list-edit-router", listeditrouter);
