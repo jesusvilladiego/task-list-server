@@ -15,7 +15,7 @@ app.use("/list-edit-router", listeditrouter);
 app.use(express.json());
 
 const users = [
-  { email: 'jesus@gmail.com', password: '123458' , rol: "admin" },
+  { email: 'jesusvilladiego@gmail.com', password: '123458' , rol: "admin" },
   { email: 'david@gmail.com', password: '95353235', rol: "usuario"}
 ];
 
@@ -29,12 +29,9 @@ app.post('/login', (req, res) => {
   }else{
     res.status(401).json({ message: 'correo o contraseña incorrecta' });
   }
-  
-  const token = jwt.sign({ userId: user.id, username: user.username }, process.env.SECRET_KEY, { algorithm: 'HS256' });
-  res.json({ token });
 });
 
-app.get('/protegida', (req, res) => {
+app.get('/protected', (req, res) => {
   const token = req.headers.authorization;
 
 
