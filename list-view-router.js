@@ -1,19 +1,18 @@
 const express = require('express');
 const router = express.Router();
-const listadetareas = require("./data")
+const listadetareas = require("./data.js")
 
- router.use(express.json());
 
  router.get("/this-should-exists", (req, res)=>{
      res.status(404).send("Not found")
  }); 
 
-router.get('/completado-tarea', (req, res) => {
-  const completadotarea = listadetareas.filter(listadetarea => listadetarea.completado);
-  res.json(completadotarea);
+router.get('/completadas', (req, res) => {
+  const completado = listadetareas.filter(listadetarea => listadetarea.completado);
+  res.json(completado);
 });
 
-router.get('/incompleto-tarea', (req, res) => {
+router.get('/incompletas', (req, res) => {
   const incompletadotarea = listadetareas.filter(listadetarea => !listadetarea.completado);
   res.json(incompletadotarea);
 });

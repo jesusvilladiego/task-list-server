@@ -1,17 +1,14 @@
-
 const express = require('express');
 const app = express();
-const PORT = process.env.port
+const PORT = 3000;
 const jwt = require("jsonwebtoken");
 require("dotenv").config();
 const KEY = process.env.SECRET_KEY
 
-const listadetareas = require("./data")
+const listadetareas = require("./data.js")
 const listviewrouter = require("./list-view-router")
 const listeditrouter = require("./list-edit-router")
 
-app.use("/list-view-router", listviewrouter);
-app.use("/list-edit-router", listeditrouter);
 app.use(express.json());
 
 const users = [
@@ -56,11 +53,11 @@ app.get('/', (req, res) => {
   res.json(listadetareas);
 });
 
-app.use('/editartareas', listeditrouter, () =>{
+app.use('/editar', listeditrouter, () =>{
   console.log("estas editando la lista de tareas")
 });
 
-app.use('/vertareas', listviewrouter, () => {
+app.use('/ver', listviewrouter, () => {
   res.json(listadetareas)
   console.log("estas viendo la lista de tareas")
 })
