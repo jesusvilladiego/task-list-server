@@ -40,7 +40,7 @@ app.get('/protected', (req, res) => {
     if (decoded.rol == "admin") {
       return res.status(200).json({users})
     } else {
-      return res.status(4001).json({message: "No tienes acceso a esta ruta"})
+      return res.status(401).json({message: "No tienes acceso a esta ruta"})
     }
   });
 });
